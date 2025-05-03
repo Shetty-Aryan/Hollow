@@ -100,10 +100,13 @@ export default function Home() {
   
 
   return (
-<div className="min-h-screen m-md " style={{backgroundColor:'#F2F5F7'}}>
-    <div id="menubar" className=" w-full flex justify-between items-centre px-1 py-1 mb-25 shadow-lg " style={{backgroundColor:"#4A9094"}}>  
+<div className="min-h-screen m-md " style={{backgroundColor:'#F2F5F7',backgroundImage: "url('/assets/background1.jpg')",backgroundSize: "cover"}
+            }>
+    <div id="menubar" className=" w-full flex justify-between items-centre px-1 h-[80px] py-1 mb-25 shadow-lg " style={{backgroundColor:"#4A9094"}}>  
+    <div className="flex justify-center items-center">
     <a href="/homepage"><img src="/assets/logo2.png" className="w-18 h-20  rounded-2xl" ></img></a>
     <img src="/assets/logo3.png" className="h-20"></img>
+    </div>
     <a href="/"className="hover:scale-105 text-white font-bold rounded-2xl flex justify-center items-center p-4 text-lg" style={{backgroundColor:"#4A9094"}}> Log Out</a>
     </div>
     {remover && (
@@ -111,10 +114,10 @@ export default function Home() {
           id="removable-content"
           className="flex flex-col items-center justify-center "
         >
-          <h1 className="text-3xl text-blue-800 font-bold pb-3">
+          <h1 className="text-3xl text-black font-bold pb-3">
             What can I help you with?
           </h1>
-          <p className="text-xl text-blue-500 pb-5">
+          <p className="text-xl text-gray-500 font-bold pb-5">
             Give a description of the product, I am gonna give the Best Outcome.
           </p>
         </div>
