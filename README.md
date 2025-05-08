@@ -1,39 +1,89 @@
-##ECOMMERCE AND RETAIL BABY
+# SmartRetail.AI — AI-Driven E-Commerce Search and Decision Engine
 
+SmartRetail.AI is an intelligent, open-ended e-commerce platform that augments product discovery using web scraping, LLMs, and real-time data fusion. It enables users to search for products using natural language, processes product metadata, reviews, and pricing from the web, and helps users make informed purchase decisions via AI-powered comparative analysis.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🔠 Features
 
-## Getting Started
+* 🔍 **Natural Language Search:** Users can type open-ended queries (e.g., *"Best laptops for coding under \$1000"*). These are tokenized and converted into key keywords using **Gemini**.
+* 🛒 **Product Scraping:** Relevant product listings and metadata are fetched using **SerpAPI**'s product data scraping.
+* 📊 **Data Analysis:** Reviews, average ratings, and price distributions are extracted and processed.
+* 🤖 **AI-Powered Decision Assistant:** A second Gemini agent (with context-fed instructions) answers follow-up questions, summarizes insights, and provides comparative evaluations of products.
+* ⚡ **Real-Time Backend:** Fast and reactive UI backed by **Next.js**, **MongoDB**, and **Redis**.
 
-First, run the development server:
+## 🧰 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Technology  | Description                                      |
+| ----------- | ------------------------------------------------ |
+| **Next.js** | Fullstack framework for React with SSR/ISR       |
+| **MongoDB** | Document database to store product, review data  |
+| **Redis**   | Caching layer for performance and state tracking |
+| **SerpAPI** | Web scraping engine to fetch live product data   |
+| **Gemini**  | LLM used for query understanding + smart replies |
+
+## 🚀 Architecture Overview
+
+```plaintext
+User Prompt
+    ↓
+Gemini (Prompt → Search Keywords)
+    ↓
+SerpAPI (Web Scraping Products)
+    ↓
+Store Data in MongoDB + Redis
+    ↓
+Gemini (Product + Review Context → Intelligent Responses)
+    ↓
+Display Final Recommendations
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Setup Instructions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/smartretail-ai.git
+cd smartretail-ai
 
-## Learn More
+# 2. Install dependencies
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# 3. Configure environment variables
+cp .env.example .env
+# Add your SerpAPI key, Gemini credentials, DB URIs etc.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 4. Run the development server
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔑 Environment Variables
 
-## Deploy on Vercel
+Create a `.env` file with the following:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+SERPAPI_KEY=your_key_here
+GEMINI_API_KEY=your_key_here
+MONGODB_URI=your_mongodb_uri
+REDIS_URL=your_redis_url
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 TODO
+
+* [ ] Product bookmarking and comparison
+* [ ] Advanced filtering on reviews (e.g., sentiment, keywords)
+* [ ] User accounts and history
+* [ ] Mobile optimization
+* [ ] Deployment (Vercel/Docker)
+
+## 🤝 Contributing
+
+Pull requests are welcome. Please open an issue first for feature discussions or bugs.
+
+## 📄 License
+
+MIT License
+
+---
+
+### ⚠️ Disclaimer
+
+This project uses real-time scraping via SerpAPI and AI generation via Gemini. Ensure compliance with respective TOS if deploying commercially.
